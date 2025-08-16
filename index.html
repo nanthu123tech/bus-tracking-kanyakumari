@@ -5,6 +5,43 @@
 </head>
 <body>
   <h1>🚍 Welcome to Kanyakumari Bus Route Finder</h1>
-  <p>This is my first website hosted on GitHub Pages.</p>
+  <p>Select your starting point and destination to see available buses.</p>
+
+  <label for="from">From:</label>
+  <select id="from">
+    <option value="Nagercoil">Nagercoil</option>
+    <option value="Kanyakumari">Kanyakumari</option>
+    <option value="Marthandam">Marthandam</option>
+  </select>
+
+  <label for="to">To:</label>
+  <select id="to">
+    <option value="Kanyakumari">Kanyakumari</option>
+    <option value="Colachel">Colachel</option>
+    <option value="Eraniel">Eraniel</option>
+  </select>
+
+  <button onclick="findBus()">Search</button>
+
+  <h2>Available Buses:</h2>
+  <div id="result"></div>
+
+  <script>
+    function findBus() {
+      const from = document.getElementById("from").value;
+      const to = document.getElementById("to").value;
+      let result = "";
+
+      if (from === "Nagercoil" && to === "Kanyakumari") {
+        result = "🚌 Bus No: 101 - Time: 6:30 AM<br>🚌 Bus No: 102 - Time: 8:00 AM";
+      } else if (from === "Marthandam" && to === "Colachel") {
+        result = "🚌 Bus No: 202 - Time: 7:00 AM";
+      } else {
+        result = "❌ No direct buses found.";
+      }
+
+      document.getElementById("result").innerHTML = result;
+    }
+  </script>
 </body>
 </html>
